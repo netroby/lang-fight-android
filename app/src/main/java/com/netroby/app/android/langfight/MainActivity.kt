@@ -52,7 +52,9 @@ class MainActivity : AppCompatActivity() {
                             val response = JSONObject(respBodyString)
                             if (resp.code() != 200) {
                                 val additionMsg = response.getString("msg")
-                                Handler(Looper.getMainLooper()).post { Toast.makeText(context, "Can not load data, please re login then try again" + additionMsg, Toast.LENGTH_SHORT).show() }
+                                Handler(Looper.getMainLooper()).post {
+                                    Toast.makeText(context, "Can not load data, please re login then try again" + additionMsg, Toast.LENGTH_SHORT).show()
+                                }
                             }
 
                             val data = response.getJSONArray("data")
